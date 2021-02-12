@@ -1,0 +1,24 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.profile img {
+  margin: 15px auto;
+  display: block;
+  width: 15rem;
+  border-radius: 2%;
+}
+
+.edu img {
+  margin: 15px auto;
+  display: block;
+  width: 5rem;
+  border-radius: 4%;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+}
