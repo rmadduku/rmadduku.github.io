@@ -22,3 +22,9 @@ html {
   height: 60px;
   line-height: 60px;
 }
+
+.post {
+  width: 600px;
+  margin-left: 12px ;
+  margin-right: 12px ;
+  }
