@@ -66,19 +66,21 @@
       <div class="post">
           <embed src="assets/doc/FishSense.pdf" type="application/pdf" width="100%" height="600px" scrollbar=0 toolbar=0 statusbar=0 navpanes=0 zoom=120/>
           <p class="font-italic">
-          <p>In the above work my contribution was on the software side of the project. I worked on developing the algorithms responsible for detecting, measuring and "weighing" the 
-            fish. I use a combination of the Yolov4 framework and depth data. It had a really good success rate especially when given the right parameters and weights. However, as with
-            any software there is always room for improvement. </p>
-          <p>The most glaring problem critics may bring up is that the current design is the fact that it requires multiple different weights. 
-            While having one set of weights would make the program a lot more concise, unfortunately there isn't a catch-all weights that works. Despite various datasets, the models weren't able to converge to 
-            a very accurate detector. In fact having many different weights allows the model to be a lot more viable in very different scenarios. While improving the weights with more and more data is always a 
-            hope, the current focus and critique of the system lies with its lack of incorporation of depth data. Currently the pipeline uses the depth data only for in the final step to make the length and 
-            volumetric measurements. However, the depth data can be used to estimate general regions of interest for fishes. Depending on the fish it may camouflage into the background or travel as part of a group. If 
-            this happens then the current model may struggle to get an accurate measurement. Its in these cases where the depth data can help create an accurate detection. In addition in some use cases where we know
-            the detection takes place in a still environment like an aquaculture plant, we are experimenting with motion subtraction techniques. If the current model incorporates the proposed motion subtraction methods
-            the level of success would be unparalleled. 
-            Likewise the system can be improved by using that same depth data to preprocess the images before they are even fed into the model. By leveraging existing works used for noise removal in the primary steps
-            the level of accuracy can be greatly improved as well. </p>
+          <p>In the above work, my contribution was on the software side of the project, so I will give my critique on it. I worked on developing the algorithms responsible for detecting, measuring, and "weighing" the fish.
+             I use a combination of the Yolov4 framework and depth data.
+             It had a really good success rate, especially when given the right parameters and weights. However, as with any software, there is always room for improvement. </p>
+          <p>The most glaring problem critics may bring up is that the current design is the fact that it requires multiple different weights.
+             While having one set of weights would make the program a lot more concise, unfortunately, there aren't catch-all weights that work.
+              Despite various datasets, the models weren't able to converge to a very accurate detector. 
+              In fact, having many different weights allows the model to be a lot more viable in very different scenarios. 
+              While improving the weights with more and more data is always hope, the current focus and critique of the system lie with its lack of incorporation of depth data. 
+              Currently, the pipeline uses the depth data only in the final step to make the length and volumetric measurements. 
+              However, the depth data can be used to estimate general regions of interest for fishes. Depending on the fish it may camouflage into the background or travel as part of a group. 
+              If this happens then the current model may struggle to get an accurate measurement. It's in these cases where the depth data can help create an accurate detection. 
+              In addition in some use cases where we know the detection takes place in a still environment like an aquaculture plant, we are experimenting with motion subtraction techniques. 
+              If the current model incorporates the proposed motion subtraction methods the level of success would be unparalleled. 
+              Likewise, the system can be improved by using that same depth data to preprocess the images before they are even fed into the model.
+             By leveraging existing works used for noise removal in the primary steps the level of accuracy can be greatly improved as well.</p>
       </div>
     </div>
     <hr />
