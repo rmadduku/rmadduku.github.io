@@ -25,6 +25,5 @@ html {
 
 .post {
   width: 1500px;
-  margin-left: auto ;
-  margin-right: auto ;
+  margin: 15px auto;
   }
