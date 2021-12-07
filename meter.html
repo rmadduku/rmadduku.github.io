@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="dark-mode.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/jpg-png/favicon.jpg" type="image/jpg" alt="Favicon">
+
+  <!-- Meta -->
+  <meta name="Description" content="Raghav Maddukuri's personal website. This is the ">
+
+  <title>Raghav Maddukuri - Mathematics-Computer Science @ University of California San Diego</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Raghav Maddukuri</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="index.html">Home</a>
+        <a class="nav-item nav-link" href="projects.html">Projects</a>
+        <a class="nav-item nav-link" href="resume.html">Resume</a>
+        <a class="nav-item nav-link" href="works.html">Inspirations</a>
+      </div>
+    </div>
+
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+      <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+    </div>
+    <script src="dark-mode-switch.min.js"></script>
+  </nav>
+
+  <div class="jumbotron jumbotron-fluid bg-light">
+    <div class="container">
+      <h1>This page contains more information about my meter reading project.</h1>
+    </div>
+  </div>
+
+<!-- 
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 text-center">
+        <h3>Publications</h3>
+      </div>
+    </div>
+    <div class="row profile">
+      <div class="col-lg-3"> -->
+      </div>
+      <body style="margin:0;padding:0">
+      <div class=center >
+         <p class="font-italic">
+        <center>
+            <h4><a style="width: 1220px; text-align: left;"
+              href="https://github.com/rmadduku/meterReader" class="btn btn-secondary">Check out the code here on GitHub!</a></h4> </p>
+          </center>
+          <!-- <center><embed src="projects/FishSense.pdf" type="application/pdf" width="80%" height="600px" scrollbar=0 toolbar=0 statusbar=0 navpanes=0 zoom=120/> -->
+
+            <p class="font-italic"> </p>
+            <center>
+            <p style="width: 1220px; text-align: left;"> In the above work, I tackled the challenge of reading the numbers on meters. This inspiration came up when I saw the electricity meter at my house. An electrician had to manually come and read off the number. This meant that a professional had to spend his time, money and energy to come read a single number. Using my computer vision skills I knew that I could at least give it a try.
+            </p>
+            <picture>
+              <source type="image/webp" srcset="assets/img/webp/Meter_1.webp" style="margin-left: 0px;">
+              <img src="assets/img/jpg-png/Meter_1.png" alt="pipeline"style="margin-left: 0px;">
+            </picture>
+            <p style="width: x; text-align: center;">Pictured above is an example of the meter that a professional would have to read.</p>
+
+             <p style="width: 1220px; text-align: left;">When I took advantage of the fact that the numbers were a monotone color against a negative background. In other words, all the numbers were light-colored against a black background. With this in mind, I used a thresholding method to isolate all the pixels that were darker than what I expected. This allowed me to obtain an image that contained the rough shape of all the pixels of interest. I then applied some morphological transformations to dilate the pixels of interest and close gaps. By combining Opening and Closing morphological transformations, I was able to generate a rough image containing the general shape of each number.</p>
+
+            <picture>
+              <source type="image/webp" srcset="assets/img/webp/thresh.webp" style="margin-left: 0px;">
+              <img src="assets/img/jpg-png/thresh.PNG" alt="pipeline"style="margin-left: 0px;">
+            </picture>
+            <p style="width: x; text-align: center;">Pictured above is the result of the pictures transformations</p>
+
+             <p style="width: 1220px; text-align: left;"> With this simple black and white image, I would then try to find the contours in the image. I only found the outside most contours as wanted the most complete images since it would make the next step easier.
+            </p>
+            <picture>
+              <source type="image/webp" srcset="assets/img/webp/contour.webp" style="margin-left: 0px;">
+              <img src="assets/img/jpg-png/contour.PNG" alt="pipeline"style="margin-left: 0px;">
+            </picture>
+          </picture>
+          <p style="width: x; text-align: center;">Pictured above is an example of the meter that with contours around it </p>
+          <p style="width: 1220px; text-align: left;"> With the contours found I was able to get a box around each of the pixels that I cared about. In most cases, this was the entire number, but in others, it was just some random noise. I then resized the images to 32x32 to get them ready for the Lenet model that I had trained. The Lenet model is a very primitive version of number recognition, built in the 1900s. However, it is incredibly fast with modern computers, hence why I opted to use it. The only problem that comes with is the 32x32 size restriction. In future iterations of this project, I will make sure to use a more robust model. In fact, I had considered using tesseractOCR, but I wasn't getting the results that I wanted, so I opted to use the previously mentioned Lenet model.     </p>
+          <picture>
+            <source type="image/webp" srcset="assets/img/webp/5.webp" style="margin-left: 0px;">
+            <img src="assets/img/jpg-png/5.PNG" alt="pipeline"style="margin-left: 0px;">
+          </picture>
+        </picture>
+        <p style="width: x; text-align: center;">Pictured above is an example of what is fed into the Lenet Model</p>
+        <picture>
+          <source type="image/webp" srcset="assets/img/webp/res.webp" style="margin-left: 0px;">
+          <img src="assets/img/jpg-png/res.PNG" alt="pipeline"style="margin-left: 0px;">
+        </picture>
+      </picture>
+      <p style="width: x; text-align: center;">Pictured above is an example of what is the result from the Lenet Model. The first number is the estimate, and the second is the confidence.</p>
+      <p style="width: 1220px; text-align: left;"> Now that I could accurately detect each number, I just had to detect them all, and cocatenate the results. This was a fairly simple task with a for loop that iterated through all the found contours.
+      </p>
+      <picture>
+        <source type="image/webp" srcset="assets/img/webp/ress2.webp" style="margin-left: 0px;">
+        <img src="assets/img/jpg-png/ress2.PNG" alt="pipeline"style="margin-left: 0px;">
+      </picture>
+      <p style="width: x; text-align: center;">Pictured above is the result of the above image.</p>
+      <p style="width: 1220px; text-align: left;">While the program works above there are still improvements that I would like to implement. The first of these is improving the number recognition model to something else. One of the proposed ideas is retrying with TesseractOCR. Likewise, I have also considered using a YOLOv4 model trained on each of the digits. Likewise, I want to also improve the thresholding since it currently only works effectively on black and white images. I would like to improve this to be HSV classification since the numbers can be colors other than white. Lastly, I can't always rely on a close-up of the meter, so I should have a model to close in on the region that the meter is most likely to be. For this model, I want to implement a Yolov4 model to draw a bounding box around the predicted meter and feed the cropped image to the existing program.</p>
+             <!-- <p style="width: 1220px; text-align: left;"> 
+              <picture>
+                <source type="image/webp" srcset="assets/img/webp/pipeline.webp" style="margin-left: 0px;">
+                <img src="assets/img/jpg-png/pipeline.PNG" alt="pipeline"style="margin-left: 0px;">
+              </picture>
+
+            </p> -->
+            </center></div>
+        <body>
+    </div>
+    <hr />
+  </div>
+
+  <!-- <footer class="footer">
+    <div class="container">
+      <span class="text-muted">Copyright & copy 2020-2021 Raghav Maddukuri. All Rights Reserved.</span>
+    </div>
+  </footer> -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

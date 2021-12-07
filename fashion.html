@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="dark-mode.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/jpg-png/favicon.jpg" type="image/jpg" alt="Favicon">
+
+  <!-- Meta -->
+  <meta name="Description" content="Raghav Maddukuri's personal website. This is the ">
+
+  <title>Raghav Maddukuri - Mathematics-Computer Science @ University of California San Diego</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Raghav Maddukuri</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="index.html">Home</a>
+        <a class="nav-item nav-link" href="projects.html">Projects</a>
+        <a class="nav-item nav-link" href="resume.html">Resume</a>
+        <a class="nav-item nav-link" href="works.html">Inspirations</a>
+      </div>
+    </div>
+
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+      <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+    </div>
+    <script src="dark-mode-switch.min.js"></script>
+  </nav>
+
+  <div class="jumbotron jumbotron-fluid bg-light">
+    <div class="container">
+      <h1>This page contains more information about my fashion score project.</h1>
+    </div>
+  </div>
+
+<!-- 
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 text-center">
+        <h3>Publications</h3>
+      </div>
+    </div>
+    <div class="row profile">
+      <div class="col-lg-3"> -->
+      </div>
+      <body style="margin:0;padding:0">
+      <div class=center >
+         <p class="font-italic">
+        <!-- <center>
+            <h4><a style="width: 1220px; text-align: left;"
+              href="https://github.com/rmadduku/meterReader" class="btn btn-secondary">Check out the code here on GitHub!</a></h4> </p>
+          </center> -->
+          <!-- <center><embed src="projects/FishSense.pdf" type="application/pdf" width="80%" height="600px" scrollbar=0 toolbar=0 statusbar=0 navpanes=0 zoom=120/> -->
+
+            <p class="font-italic"> </p>
+            <center>
+            <p style="width: 1220px; text-align: left;"> For this project, I tackled the subject problem of fashion. Personally, I suck at dressing fashionably, instead opting for a simple t-shirt and jeans. So to help with my fashion problem I made a program that could evaluate how good my dress was using color contrast between your shirt, pants, and shoes. I had seen color dressing guides online and I made use of them to make my algorithm.</p>
+            <picture>
+              <source type="image/webp" srcset="assets/img/webp/color.webp" style="margin-left: 0px;">
+              <img src="assets/img/jpg-png/color.jpg" alt="pipeline"style="margin-left: 0px;">
+            </picture>
+            <p style="width: x; text-align: center;">Pictured above is an example of a color dressing guide.</p>
+
+             <p style="width: 1220px; text-align: left;">As with any project I created a step-by-step guide for how I would approach this project. I knew that since I wanted to do more than just a simple color finder I had to isolate the top, bottom, and shoes. For this, I opted to use a yolov4 that detected tops, bottoms, and shows, by training it on data that I annotated from Google's Open Images Dataset. With a clear bounding box around each of the pieces of clothing, I would then need to somehow evaluate the color that someone was wearing. Since some clothing could have many different colors or very small traces, I made a primary and secondary color for each piece of clothing. I also set minimums and had a very simple blob detector run on the clothing, This blob detection was to detect if there was something like dirt or food smudges that were readily obvious. I subtracted ten points from the total score for each smudge I found.
+            </p>
+
+             <p style="width: 1220px; text-align: left;"> Now that I had isolated each piece of clothing, I had to find the primary and secondary clothing. For this, I made an array of values containing all the colors on the left of the color chart. Then I simply went through each of the pixels in the detected pieces of clothing and found the corresponding Red, Green, and Blue, (RGB) values. I then allowed a plus-minus of 25 in each of the values of R,G, B for each pixel allowing for different shades than what I had set for each of the colors. To figure out which were my primary and secondary colors, I counted the number of pixels that corresponded to each color, and let the most, and second most be the primary and secondary colors. If the secondary color didn't pass a certain minimum, or there wasn't a clear second place, I just assumed there wasn't a definite secondary color.</p>
+
+          <p style="width: 1220px; text-align: left;">Now with the primary and secondary colors of each piece of clothing, I created a list of 6 colors. From this list of 6 colors, I consulted the color chart to see how complimentary each of the colors was. I used the chart pictured above and simply gave each color an equal weight. If I had repeats more than three times, meaning that someone was wearing the same color in their top, bottom and shoes, I deducted from the final score. Using the metric from before combined with infractions, I output a final score for the person's attire.</p>
+          <picture>
+            <source type="image/webp" srcset="assets/img/webp/good.webp" style="margin-left: 0px;">
+            <img src="assets/img/jpg-png/good.jpg" alt="pipeline"style="margin-left: 0px;">
+          </picture>
+          <p style="width: x; text-align: center;">Pictured above is the result of the program</p>
+
+      <p style="width: 1220px; text-align: left;">
+      </p>
+
+      <p style="width: 1220px; text-align: left;">While this project works to some extent, it is purely for fun, and isn't meant to be taken seriously for clothing. With that in mind, I did want to see if I could improve it further. The one largest problem I had with the color evaluation was suits. Suits were typically one color like black or grey throughout the top, bottom and shows. As a result my program evaluated them very low since it had no color contrast. For example:</p>
+      <picture>
+        <source type="image/webp" srcset="assets/img/webp/meh.webp" style="margin-left: 0px;">
+        <img src="assets/img/jpg-png/meh.jpg" alt="pipeline"style="margin-left: 0px;">
+      </picture>
+      <p style="width: x; text-align: center;">Pictured above is a result I want to improve.</p>
+      <p style="width: 1220px; text-align: left;">I think I just have to do more research into the fashion field before I can make a program that can evaluate fashion. I based this entire program off my incredibly limited fashion knowledge, and as a result it is incredibly limited in its results. In future iterations I will make more exhaustive checks of clothing and be able to give a better score.</p>
+             <!-- <p style="width: 1220px; text-align: left;"> 
+              <picture>
+                <source type="image/webp" srcset="assets/img/webp/pipeline.webp" style="margin-left: 0px;">
+                <img src="assets/img/jpg-png/pipeline.PNG" alt="pipeline"style="margin-left: 0px;">
+              </picture>
+
+            </p> -->
+            </center></div>
+        <body>
+    </div>
+    <hr />
+  </div>
+
+  <!-- <footer class="footer">
+    <div class="container">
+      <span class="text-muted">Copyright & copy 2020-2021 Raghav Maddukuri. All Rights Reserved.</span>
+    </div>
+  </footer> -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

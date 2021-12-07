@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="dark-mode.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/jpg-png/favicon.jpg" type="image/jpg" alt="Favicon">
+
+  <!-- Meta -->
+  <meta name="Description" content="Raghav Maddukuri's personal website. This is the ">
+
+  <title>Raghav Maddukuri - Mathematics-Computer Science @ University of California San Diego</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Raghav Maddukuri</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="index.html">Home</a>
+        <a class="nav-item nav-link" href="projects.html">Projects</a>
+        <a class="nav-item nav-link" href="resume.html">Resume</a>
+        <a class="nav-item nav-link" href="works.html">Inspirations</a>
+      </div>
+    </div>
+
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+      <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+    </div>
+    <script src="dark-mode-switch.min.js"></script>
+  </nav>
+
+  <div class="jumbotron jumbotron-fluid bg-light">
+    <div class="container">
+      <h1>This page contains more information about my mask recognition project.</h1>
+    </div>
+  </div>
+
+<!-- 
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 text-center">
+        <h3>Publications</h3>
+      </div>
+    </div>
+    <div class="row profile">
+      <div class="col-lg-3"> -->
+      </div>
+      <body style="margin:0;padding:0">
+      <div class=center >
+         <p class="font-italic">
+          <!-- <center><embed src="projects/FishSense.pdf" type="application/pdf" width="80%" height="600px" scrollbar=0 toolbar=0 statusbar=0 navpanes=0 zoom=120/> -->
+
+            <p class="font-italic"> </p>
+            <center>
+            <p style="width: 1220px; text-align: left;"> For this project I wanted to tackle the problem of people improperly wearing masks. In light of the coronavirus, I wanted to make sure that people proper COVID-19 prevention practices.
+            </p>
+            <picture>
+              <source type="image/webp" srcset="assets/img/webp/mask.webp" style="margin-left: 0px;">
+              <img src="assets/img/jpg-png/mask.png" alt="pipeline"style="margin-left: 0px;">
+            </picture>
+            <p style="width: x; text-align: center;">Pictured above is an example of a person wearing a mask that I would like to recognize.</p>
+
+             <p style="width: 1220px; text-align: left;">For this project, I wanted to do more than simply check if a person was wearing a mask. There are some masks that technically qualify as masks, but they are a poor excuse for a mask. For example:
+
+            </p>
+            <picture>
+              <source type="image/webp" srcset="assets/img/webp/fake.webp" style="margin-left: 0px;">
+              <img src="assets/img/jpg-png/fake.png" alt="pipeline"style="margin-left: 0px;">
+            </picture>
+            <p style="width: x; text-align: center;">Pictured above is an example of a mask that I considered invalid</p>
+
+             <p style="width: 1220px; text-align: left;">So first I made sure to make an outline of what I considered a valid mask-wearing. I made a list of all the things that made a person wear a mask incorrectly. If they wore a mask in a way that we could see their nose or mouth, they wore it incorrectly. Likewise, If they wore a mask that wasn't an actual mask, say a scarf or just a bit of their shirt pulled up, that was also invalid.
+            </p>
+          <p style="width: 1220px; text-align: left;">The first of the project specifications that I tackled was simply finding if someone was wearing a mask or not. For this, I used a Yolov4 convolutional neural network for the blend of accuracy and real-time detection. I eventually want people to be able to run this program on something like a security camera to see if visitors to their store, home, etc. are wearing a mask. </p>
+          <p style="width: 1220px; text-align: left;"> Using the yolov4 I was able to create a cropped image that only had the area where the predicted mask was. Once I got this I had another yolov4 network trained to detect noses, mouths, and scarfs.</p>
+            
+          <picture>
+            <source type="image/webp" srcset="assets/img/webp/scarf.webp" style="margin-left: 0px;">
+            <img src="assets/img/jpg-png/scarf.PNG" alt="pipeline"style="margin-left: 0px;">
+          </picture>
+        </picture>
+        <p style="width: x; text-align: center;">Pictured above is an example of someone using a scarf as a max, that I considered invalid</p>
+      <p style="width: 1220px; text-align: left;"> Now I use a personal scoring algorithm that I came up with to give each photo a percentage of how well they were wearing their mask. For this scoring algorithm, I made use of the checks I made before, as well as the accuracy of each of those detections. I first evaluated the accuracy of the mask detected and used that as a base number that I then subtracted from. If I saw a nose I subtracted 20 times the accuracy percentage of the detection. I then did the same with a detected mouth but used 60 as a possible maximum. So if someone wore a mask that showed their nose and mouth they would earn a maximum of 20%. Likewise, I wanted to penalize people who cheated their mask-wearing with a scarf or a bit of cloth. For the people that wore a scarf, I put an upper cap of 50 times the detected accuracy.
+
+
+
+      </p>
+      <p style="width: 1220px; text-align: left;">With this project, the general pipeline is incredibly streamlined. However, I am performing a solo detection twice when it seems a little overkill. With new variants, some doctors are recommending only the N95 mask as the only viable option. With this, it would be really easy to detect if a person was wearing an N95 using feature matching. I would simply upload a picture of an N95, and see if something similar is found in the given picture.</p>
+             <!-- <p style="width: 1220px; text-align: left;"> 
+              <picture>
+                <source type="image/webp" srcset="assets/img/webp/pipeline.webp" style="margin-left: 0px;">
+                <img src="assets/img/jpg-png/pipeline.PNG" alt="pipeline"style="margin-left: 0px;">
+              </picture>
+
+            </p> -->
+            </center></div>
+        <body>
+    </div>
+    <hr />
+  </div>
+
+  <!-- <footer class="footer">
+    <div class="container">
+      <span class="text-muted">Copyright & copy 2020-2021 Raghav Maddukuri. All Rights Reserved.</span>
+    </div>
+  </footer> -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
